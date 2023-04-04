@@ -1,3 +1,9 @@
+I: Cốt lõi của một giao dịch trong cơ sở dữ liệu là gì ?( what is the transaction in  data)
+Cốt lõi của một giao dịch cơ sở dữ liệu là việc thay đổi trạng thái của dữ liệu trong cơ sở dữ liệu.
+Một giao dịch phải đảm bảo tính toàn vẹn của dữ liệu và được xử lý hoàn toàn hoặc không được xử lý tất cả. 
+Nếu một giao dịch gặp sự cố, hệ thống phải đảm bảo rằng mọi thay đổi dữ liệu được quay trở lại trạng thái ban đầu
+Điều này đảm bảo tính nhất quán của cơ sở dữ liệu và tránh gây ra sự mất mát hoặc hỏng hóc dữ liệu.
+
 ACID là viết tắt của bốn thuộc tính quan trọng trong hệ thống cơ sở dữ liệu 
 
 1: Tính nguyên vẹn: (Atomicity) Đảm bảo tất cả các hoạt động trong một giao dịch được thực hiện hoặc không được thực hiện hoàn toàn. Nếu một phần của giao dịch bị lỗi, 
