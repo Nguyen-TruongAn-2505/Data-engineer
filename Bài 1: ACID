@@ -1,0 +1,29 @@
+ACID là viết tắt của bốn thuộc tính quan trọng trong hệ thống cơ sở dữ liệu 
+
+1: Tính nguyên vẹn: (Atomicity) Đảm bảo tất cả các hoạt động trong một giao dịch được thực hiện hoặc không được thực hiện hoàn toàn. Nếu một phần của giao dịch bị lỗi, 
+thì tất cả các thay đổi cần phải được hủy bỏ.
+VD: Nếu trong quá trình chuyển khoản xảy ra lỗi, ví dụ như mất kết nối mạng hoặc tài khoản không đủ tiền để thực hiện giao dịch, thì toàn bộ giao dịch sẽ bị hủy bỏ. 
+Tiền không sẽ không được chuyển và tài khoản A sẽ không bị trừ tiền.
+LƯU Ý: Để đảm bảo tính nguyên vẹn của giao dịch, hệ thống cần phải có cơ chế để quay trở lại trạng thái ban đầu nếu giao dịch không thành công. Nếu không có cơ chế này,
+dữ liệu có thể bị mất hoặc không nhất quán.
+
+2: Tính nhất quán: (Consistency) Đảm bảo dữ liệu trong cơ sở dữ liệu luôn ở trạng thái nhất quán sau mỗi giao dịch . Nghĩa là dữ liệu phải đáp ứng các ràng buộc và quy tắc
+được định nghĩa trước đó.
+VD: Trước khi thực hiện giao dịch, hệ thống sẽ kiểm tra xem tài khoản A có đủ tiền để chuyển hay không.  Nếu tài khoản A không đủ tiền thì giao dịch sẽ không được thực hiện.
+Điều này đảm bảo rằng tài khoản A và tài khoản B sẽ không bị sai sót về số tiền.
+LƯU Ý: rong quá trình xử lý dữ liệu, hệ thống cần phải kiểm tra xác thực dữ liệu để đảm bảo tính nhất quán của dữ liệu. Nếu dữ liệu không đáp ứng
+các ràng buộc và quy tắc được định nghĩa trước đó , giao dịch sẽ bị từ chối.
+
+3. Tính cô đọng: (isolation) Đảm bảo rằng mỗi giao dịch được thực hiện độc lập với các giao dịch khác, và không làm ảnh hưởng đến các giao dịch khác đang dược thực hiện 
+cùng lúc trên cơ sở dữ liệu
+VD: Khi giao dịch chuyển khoản đang được thực hiện, các giao dịch khác trên cùng hai tài khoản A và B sẽ không bị ảnh hưởng. Ví dụ, nếu tài khoản B đang được thực hiện một giao dịch rút tiền 
+thì giao dịch chuyển khoản từ tài khoản A sang tài khoản B sẽ không làm ảnh hưởng đến giao dịch rút tiền.
+LƯU Ý: Hệ thống cần phải có cơ chế để giải quyết các xung đột dữ liệu và đảm bảo tính cô đọng của giao dịch. Nếu không có cơ chế này,
+các giao dịch khác có thể bị ảnh hưởng hoặc dữ liệu có thể bị sai sót.
+
+4. Tính bền vững: (Durability) Đảm bảo dữ liệu đã được lưu trữ sẽ không bị mất khi có sự cố xảy ra trên hệ thống, Dữ liệu sẽ được sao lưu hoặc ghi vào bộ nhớ lưu trữ 
+vĩnh viễn đẻ đảm bảo tính bền vững của dữ liệu
+VD: Sau khi giao dịch được thực hiện thành công, thông tin về giao dịch sẽ được lưu trữ vào cơ sở dữ liệu và sẽ không bị mất đi 
+trong trường hợp hệ thống gặp sự cố hoặc bị tắt nguồn.
+LƯU Ý: Hệ thống cần phải có cơ chế sao lưu dữ liệu để đảm bảo tính bền vững của dữ liệu. Nếu không có cơ chế này, dữ liệu có thể bị mất hoặc không khả phục được 
+khi có sự cố xảy ra trên hệ thống.
